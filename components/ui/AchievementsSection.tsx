@@ -3,9 +3,10 @@ import React from "react";
 import dynamic from "next/dynamic";
 
 // Dynamically import react-animated-numbers with SSR disabled
-const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
+const AnimatedNumbers: any = dynamic(() => import("react-animated-numbers"), {
 	ssr: false,
-}) as any; // <-- Fixes TypeScript prop type issue
+});
+
 
 // Define the TypeScript interface for each achievement item
 interface Achievement {
