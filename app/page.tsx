@@ -17,7 +17,7 @@ export default function Home() {
 				className="absolute top-0 left-0 w-full h-full object-cover -z-10"
 			>
 				<source
-					src="/videos/bg-video3.mov"
+					src="/videos/bg-video.mov"
 					type="video/mp4"
 				/>
 				Your browser does not support the video tag.
