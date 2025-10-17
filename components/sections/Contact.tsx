@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { useRef, useState } from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
 
 const Contact = () => {
@@ -13,12 +13,16 @@ const Contact = () => {
 		e.preventDefault();
 		setLoading(true);
 
+		const service_id: string = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+		const template_id: string = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!
+		const public_key: string = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+
 		emailjs
 			.sendForm(
-				"service_ezw4svp", // Replace with your actual EmailJS Service ID
-				"template_tddh6ab", // Replace with your Template ID
+				service_id, // Replace with your actual EmailJS Service ID
+				template_id, // Replace with your Template ID
 				formRef.current!,
-				"htV9w9R6ETq6sHQZR" // Replace with your Public Key
+				public_key// Replace with your Public Key
 			)
 			.then(
 				() => {
