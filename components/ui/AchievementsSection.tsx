@@ -3,10 +3,9 @@ import React from "react";
 import dynamic from "next/dynamic";
 
 // Dynamically import react-animated-numbers with SSR disabled
-const AnimatedNumbers: any = dynamic(() => import("react-animated-numbers"), {
+const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
 	ssr: false,
-});
-
+}); // <-- Fixes TypeScript prop type issue
 
 // Define the TypeScript interface for each achievement item
 interface Achievement {
@@ -54,14 +53,14 @@ const AchievementsSection: React.FC = () => {
 								<span>{achievement.prefix}</span>
 							)}
 							<AnimatedNumbers
-								includeComma
+								useThousandsSeparator
 								animateToNumber={parseInt(
 									achievement.value,
 									10
 								)}
 								locale="en-US"
 								className="text-white text-4xl font-bold"
-								configs={() => ({
+								transitions={() => ({
 									mass: 1,
 									friction: 100,
 									tension: 140 * (index + 1),
