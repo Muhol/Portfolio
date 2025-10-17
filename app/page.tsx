@@ -7,7 +7,7 @@ import Skills from "@/components/sections/Skills";
 export default function Home() {
   return (
 		<section className="h-screen max-w-screen overflow-x-hidden snap-mandatory snap-y overflow-y-scroll pt-[80px]">
-			<video
+			{/* <video
 				autoPlay
 				loop
 				muted
@@ -19,7 +19,7 @@ export default function Home() {
 					type="video/mp4"
 				/>
 				Your browser does not support the video tag.
-			</video>
+			</video> */}
 			<section
 				id="hero"
 				className="min-h-screen bg-linear-to-b from-background from-10% via-transparent to-background to-90% flex items-center justify-center snap-start"
