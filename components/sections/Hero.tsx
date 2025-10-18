@@ -19,9 +19,9 @@ const Hero = () => {
 						whileInView={{ opacity: 1, x: 0 }}
 						exit={{ opacity: 0, x: -200 }}
 						transition={{ duration: 1 }}
-						className="md:flex-1  bg-background/30 backdrop-blur p-6 sm:p-8 rounded-2xl text-left"
+						className="md:flex-1 bg-background/10 backdrop-blur p-6 sm:p-8 rounded-2xl text-left"
 					>
-						<p className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-linear-65 from-accent2 from-5% to-40% to-accent text-transparent bg-clip-text mb-4">
+						<p className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-linear-65 from-accent2 from-5% to-40% to-accent text-accent bg-clip-text mb-4">
 							Hello, I’m
 						</p>
 

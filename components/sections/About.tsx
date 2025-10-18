@@ -12,10 +12,10 @@ const About = () => {
 		>
 			{/* RIGHT SIDE - Image (on top for mobile) */}
 			<motion.div
-				initial={{ opacity: 0, y: 50 }}
+				initial={{ opacity: 0, y: 50, x: 100 }}
 				whileInView={{ opacity: 1, y: 0 }}
-				exit={{ opacity: 0, y: 50 }}
-				transition={{ duration: 0.8 }}
+				exit={{ opacity: 0, y: 50, x: 100 }}
+				transition={{ duration: 0.8, delay:0.3 }}
 				// viewport={{ once: true }}
 				className="flex justify-center order-first md:order-last"
 			>
@@ -31,19 +31,19 @@ const About = () => {
 
 			{/* LEFT SIDE - Text */}
 			<motion.div
-				initial={{ opacity: 0, x: -50 }}
+				initial={{ opacity: 0, x: -150 }}
 				whileInView={{ opacity: 1, x: 0 }}
-				exit={{ opacity: 0, x: -50 }}
+				exit={{ opacity: 0, x: -150 }}
 				transition={{ duration: 0.8 }}
 				className="text-center md:text-left"
 			>
-				<h2 className="text-3xl sm:text-4xl font-bold mb-6 text-accent">
+				<h2 className="text-3xl sm:text-4xl font-bold mb-6 text-accent2">
 					About Me
 				</h2>
 
 				<p className="text-base sm:text-lg mb-4 leading-relaxed text-foreground/90">
 					I’m{" "}
-					<span className="text-accent font-semibold">
+					<span className="text-accent font-bold">
 						Ian Samwel Mohol
 					</span>
 					, a Computer Science student at the Catholic University of
@@ -53,10 +53,10 @@ const About = () => {
 
 				<p className="text-base sm:text-lg mb-4 leading-relaxed text-foreground/90">
 					I specialize in building full-stack applications using
-					<span className="text-accent"> React</span>,
-					<span className="text-accent"> Next.js</span>,
-					<span className="text-accent"> Node.js</span>, and
-					<span className="text-accent"> MongoDB</span>. I love
+					<span className="text-accent font-bold"> React</span>,
+					<span className="text-accent font-bold"> Next.js</span>,
+					<span className="text-accent font-bold"> Node.js</span>, and
+					<span className="text-accent font-bold"> MongoDB</span>. I love
 					transforming ideas into functional, user-friendly, and
 					visually appealing digital experiences.
 				</p>

@@ -8,8 +8,8 @@
     --background: #000000;
     --foreground: #ededed;
     --accent2: #FFD700;
-    --accent: #00AB32;
-
+    /* --accent: #00BFFF; */
+    --accent: #00ff00;
     --secondary: #001F3F;
 }
 
@@ -29,7 +29,8 @@
     --background: #000000;
     --foreground: #ededed;
     --accent2: #FFD700;
-    --accent: #00AB32;
+    /* --accent: #00BFFF; */
+    --accent: #00ff00;
     --secondary: #001F3F;
 
     /* --background: #ededed; */

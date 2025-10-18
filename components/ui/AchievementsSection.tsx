@@ -1,48 +1,47 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
-// Dynamically import react-animated-numbers with SSR disabled
+// Dynamically import react-animated-numbers (client-side only)
 const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
 	ssr: false,
-}); // <-- Fixes TypeScript prop type issue
+});
 
-// Define the TypeScript interface for each achievement item
 interface Achievement {
 	metric: string;
-	value: string;
+	value: number;
 	prefix?: string;
 	postfix?: string;
 }
 
-// Achievements data
+// ✅ Achievements data
 const achievementsList: Achievement[] = [
-	{
-		metric: "Projects",
-		value: "4",
-		postfix: "+",
-	},
-	{
-		postfix: "+",
-		metric: "live Projects",
-		value: "3",
-	},
-	{
-		metric: "Frameworks & Tools",
-		value: "10",
-		postfix: "+",
-	},
-	{
-		metric: "Hands-on Experience",
-		value: "4",
-		postfix: "+ yrs",
-	},
+	{ metric: "Projects", value: 4, postfix: "+" },
+	{ metric: "Live Projects", value: 3, postfix: "+" },
+	{ metric: "Frameworks & Tools", value: 10, postfix: "+" },
+	{ metric: "Hands-on Experience", value: 4, postfix: "+ yrs" },
 ];
 
 const AchievementsSection: React.FC = () => {
+	const [displayValues, setDisplayValues] = useState<number[]>([]);
+
+	useEffect(() => {
+		// Start with random values to create the "rolling" effect
+		setDisplayValues(
+			achievementsList.map(() => Math.floor(Math.random() * 50))
+		);
+
+		// Then update to actual values after short delay
+		const timer = setTimeout(() => {
+			setDisplayValues(achievementsList.map((item) => item.value));
+		}, 800); // adjust delay as you like
+
+		return () => clearTimeout(timer);
+	}, []);
+
 	return (
 		<div className="py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-			<div className="sm:border-background/5 sm:border bg-background/30 backdrop-blur rounded-3xl py-8 px-16 flex flex-col sm:flex-row items-center justify-between">
+			<div className="sm:border-background/5 sm:border bg-background/10 backdrop-blur rounded-3xl py-8 px-16 flex flex-col sm:flex-row items-center justify-between">
 				{achievementsList.map((achievement, index) => (
 					<div
 						key={index}
@@ -53,10 +52,7 @@ const AchievementsSection: React.FC = () => {
 								<span>{achievement.prefix}</span>
 							)}
 							<AnimatedNumbers
-								animateToNumber={parseInt(
-									achievement.value,
-									10
-								)}
+								animateToNumber={displayValues[index] || 0}
 								locale="en-US"
 								className="text-white text-4xl font-bold"
 								transitions={() => ({
