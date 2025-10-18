@@ -13,7 +13,7 @@ const About = () => {
 			{/* RIGHT SIDE - Image (on top for mobile) */}
 			<motion.div
 				initial={{ opacity: 0, y: 50, x: 100 }}
-				whileInView={{ opacity: 1, y: 0 }}
+				whileInView={{ opacity: 1, y: 0, x: 0 }}
 				exit={{ opacity: 0, y: 50, x: 100 }}
 				transition={{ duration: 0.8, delay:0.3 }}
 				// viewport={{ once: true }}
