@@ -24,12 +24,12 @@ export default function Home() {
 
 		resizeCanvas();
 
-		let letters =
+		const letters =
 			"ABCDEFGHIJKLMNOPQRSTUVXYZ123456789@#$%&*abcdefghijklmnopqrstuvxyz";
 		const lettersArray = letters.split("");
 
 		const fontSize = 20; // 🔹 Increased from 10 → 16 for larger letters
-		let columns = Math.floor(canvas.width / fontSize);
+		const columns = Math.floor(canvas.width / fontSize);
 		const drops: number[] = Array(columns).fill(1);
 
 		const draw = () => {
