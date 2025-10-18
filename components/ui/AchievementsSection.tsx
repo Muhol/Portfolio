@@ -53,7 +53,6 @@ const AchievementsSection: React.FC = () => {
 								<span>{achievement.prefix}</span>
 							)}
 							<AnimatedNumbers
-								useThousandsSeparator
 								animateToNumber={parseInt(
 									achievement.value,
 									10
