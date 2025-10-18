@@ -64,13 +64,13 @@ const Hero = () => {
 						initial={{ opacity: 0, scale: 0, y: -50 }}
 						animate={{ opacity: 1, scale: 1, y: 0 }}
 						transition={{ duration: 0.6 }}
-						className="relative w-[200px] sm:w-[300px] md:w-[350px] h-[200px] sm:h-[300px] md:h-[350px] rounded-full shadow-2xl shadow-accent/25 hover:shadow-accent/50 transition-all duration-300 overflow-hidden"
+						className=" relative w-[200px] sm:w-[300px] md:w-[350px] h-[200px] sm:h-[300px] md:h-[350px] rounded-full bg-accent/40 shadow-2xl shadow-accent/25 hover:shadow-accent/50 transition-all duration-300 overflow-hidden"
 					>
 						<Image
-							src="/images/profile.jpg"
+							src="/images/profile3.png"
 							alt="Profile picture"
 							fill
-							className="rounded-full object-cover"
+							className="rounded-full object-cover bg-accent/20 mix-blend-multiply"
 						/>
 					</motion.div>
 				</div>
