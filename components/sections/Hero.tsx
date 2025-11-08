@@ -49,12 +49,18 @@ const Hero = () => {
 						transition={{ duration: 1, delay: 0.5 }}
 						className="flex gap-4 items-center justify-center"
 					>
-						<div className="px-4 md:px-11 py-2 bg-gradient-to-r from-foreground/20 to-secondary/45 bg-[length:200%_100%] bg-right hover:bg-left active:bg-left  backdrop-blur rounded-full transition-all duration-500 ease-in-out cursor-pointer">
-							<p className="text-lg font-semibold">Hire Me</p>
-						</div>
-						<div className="px-4 md:px-11 py-2 bg-gradient-to-r from-background/45 to-accent/45 bg-[length:200%_100%] bg-left hover:bg-right active:bg-right backdrop-blur rounded-full transition-all duration-500 ease-in-out cursor-pointer">
-							<p className="text-lg font-semibold">Download CV</p>
-						</div>
+						<a href="#contact">
+							<div className="px-4 md:px-11 py-2 bg-gradient-to-r from-foreground/20 to-secondary/45 bg-[length:200%_100%] bg-right hover:bg-left active:bg-left  backdrop-blur rounded-full transition-all duration-500 ease-in-out cursor-pointer">
+								<p className="text-lg font-semibold">Hire Me</p>
+							</div>
+						</a>
+						<a href="https://drive.google.com/file/d/1w1prCAgb4WUT4ynwMw_yBXjXiEv_ubvf/view?usp=sharing">
+							<div className="px-4 md:px-11 py-2 bg-gradient-to-r from-background/45 to-accent/45 bg-[length:200%_100%] bg-left hover:bg-right active:bg-right backdrop-blur rounded-full transition-all duration-500 ease-in-out cursor-pointer">
+								<p className="text-lg font-semibold">
+									Download CV
+								</p>
+							</div>
+						</a>
 					</motion.div>
 				</div>
 
