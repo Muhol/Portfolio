@@ -9,57 +9,63 @@ const Hero = () => {
 	return (
 		<section
 			id="hero"
-			className="min-h-screen flex flex-col items-center justify-center md:justify-end w-full max-w-6xl mx-auto px-5 py-20 gap-10"
+			className="min-h-screen flex flex-col items-center justify-center w-full max-w-6xl mx-auto px-5 py-20 gap-16"
 		>
-			<div className="w-full flex flex-col-reverse md:flex-row gap-10">
+			<div className="w-full flex flex-col-reverse md:flex-row items-center gap-12">
 				{/* LEFT SIDE - Text */}
-				<div className="flex-1 flex gap-4 md:gap-10 flex-col">
+				<div className="flex-1 flex flex-col gap-8 text-center md:text-left">
 					<motion.div
-						initial={{ opacity: 0, x: -200 }}
+						initial={{ opacity: 0, x: -50 }}
 						whileInView={{ opacity: 1, x: 0 }}
-						exit={{ opacity: 0, x: -200 }}
 						transition={{ duration: 1 }}
-						className="md:flex-1 bg-background/10 backdrop-blur p-6 sm:p-8 rounded-2xl text-left"
+						className="glass p-8 sm:p-10 rounded-3xl"
 					>
-						<p className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-linear-65 from-accent2 from-5% to-40% to-accent text-accent bg-clip-text mb-4">
+						<p className="text-xl sm:text-2xl font-medium text-accent mb-4">
 							Hello, I’m
 						</p>
-
-						<TypeAnimation
-							sequence={[
-								"Mohol Samwel",
-								1500,
-								"A Web Developer",
-								1500,
-								"A Mobile Developer",
-								1500,
-								"A UI/UX Designer",
-								1500,
-							]}
-							wrapper="span"
-							speed={50}
-							className="block text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground"
-							repeat={Infinity}
-						/>
+						<h1 className="text-5xl sm:text-7xl font-bold text-gradient mb-6">
+							Mohol Samwel
+						</h1>
+						
+						<div className="h-16 flex items-center justify-center md:justify-start">
+							<TypeAnimation
+								sequence={[
+									"A Full-stack Web Developer",
+									2000,
+									"A Mobile App Developer",
+									2000,
+									"A UI/UX Design Specialist",
+									2000,
+									"A Computer Science Student",
+									2000,
+								]}
+								wrapper="span"
+								speed={50}
+								className="text-2xl sm:text-3xl font-semibold text-foreground/80"
+								repeat={Infinity}
+							/>
+						</div>
 					</motion.div>
+
 					<motion.div
-						initial={{ opacity: 0, y: 200 }}
+						initial={{ opacity: 0, y: 30 }}
 						whileInView={{ opacity: 1, y: 0 }}
-						exit={{ y: 200, opacity: 0 }}
 						transition={{ duration: 1, delay: 0.5 }}
-						className="flex gap-4 items-center justify-center"
+						className="flex flex-wrap gap-4 items-center justify-center md:justify-start"
 					>
-						<a href="#contact">
-							<div className="px-4 md:px-11 py-2 bg-gradient-to-r from-foreground/20 to-secondary/45 bg-[length:200%_100%] bg-right hover:bg-left active:bg-left  backdrop-blur rounded-full transition-all duration-500 ease-in-out cursor-pointer">
-								<p className="text-lg font-semibold">Hire Me</p>
+						<a href="#contact" className="relative group">
+							<div className="absolute -inset-0.5 bg-accent rounded-full blur opacity-30 group-hover:opacity-100 transition duration-500"></div>
+							<div className="relative px-8 md:px-12 py-3 bg-accent text-background rounded-full font-bold text-lg transition duration-500">
+								Hire Me
 							</div>
 						</a>
-						<a href="https://drive.google.com/file/d/1w1prCAgb4WUT4ynwMw_yBXjXiEv_ubvf/view?usp=sharing">
-							<div className="px-4 md:px-11 py-2 bg-gradient-to-r from-background/45 to-accent/45 bg-[length:200%_100%] bg-left hover:bg-right active:bg-right backdrop-blur rounded-full transition-all duration-500 ease-in-out cursor-pointer">
-								<p className="text-lg font-semibold">
-									Download CV
-								</p>
-							</div>
+						
+						<a 
+							href="https://drive.google.com/file/d/1w1prCAgb4WUT4ynwMw_yBXjXiEv_ubvf/view?usp=sharing"
+							target="_blank"
+							className="px-8 md:px-12 py-3 glass rounded-full font-semibold text-lg hover:border-accent/40 transition-all duration-300"
+						>
+							Download CV
 						</a>
 					</motion.div>
 				</div>
@@ -67,25 +73,33 @@ const Hero = () => {
 				{/* RIGHT SIDE - Image */}
 				<div className="flex-1 flex items-center justify-center md:justify-end">
 					<motion.div
-						initial={{ opacity: 0, scale: 0, y: -50 }}
-						animate={{ opacity: 1, scale: 1, y: 0 }}
-						transition={{ duration: 0.6 }}
-						className=" relative w-[200px] sm:w-[300px] md:w-[350px] h-[200px] sm:h-[300px] md:h-[350px] rounded-full bg-accent/40 shadow-2xl shadow-accent/25 hover:shadow-accent/50 transition-all duration-300 overflow-hidden"
+						initial={{ opacity: 0, scale: 0.8 }}
+						animate={{ opacity: 1, scale: 1 }}
+						transition={{ duration: 0.8 }}
+						className="relative w-[280px] sm:w-[350px] md:w-[400px] h-[280px] sm:h-[350px] md:h-[400px]"
 					>
-						<Image
-							src="/images/profile3.png"
-							alt="Profile picture"
-							fill
-							className="rounded-full object-cover bg-accent/20 mix-blend-multiply"
-						/>
+						{/* Background Glow */}
+						<div className="absolute inset-0 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
+						
+						<div className="relative w-full h-full rounded-full glass border-2 border-accent/20 p-2 shadow-2xl shadow-accent/10">
+							<div className="relative w-full h-full rounded-full overflow-hidden">
+								<Image
+									src="/images/profile3.png"
+									alt="Mohol Samwel Profile"
+									fill
+									className="object-cover transition-transform duration-700 hover:scale-110"
+									priority
+								/>
+							</div>
+						</div>
 					</motion.div>
 				</div>
 			</div>
+
 			<motion.div
-				initial={{ opacity: 0, y: -50 }}
+				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
-				exit={{ y: -50, opacity: 0 }}
-				transition={{ duration: 0.3, delay: 0.9 }}
+				transition={{ duration: 0.8, delay: 0.8 }}
 				className="w-full hidden md:block"
 			>
 				<AchievementsSection />

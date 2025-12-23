@@ -6,6 +6,7 @@ import Contact from "@/components/sections/Contact";
 import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
+import Testimonials from "@/components/sections/Testimonials";
 
 export default function Home() {
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -98,6 +99,13 @@ export default function Home() {
 				className="min-h-screen flex items-center justify-center snap-start bg-gradient-to-b from-background from-10%  to-transparent"
 			>
 				<Projects />
+			</section>
+
+			<section
+				id="testimonials"
+				className="min-h-screen flex items-center justify-center snap-start"
+			>
+				<Testimonials />
 			</section>
 
 			<section

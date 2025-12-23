@@ -74,13 +74,12 @@ const skills = [
 	},
 ];
 
-// Duplicate skills for infinite scroll
 const repeatedSkills = [...skills, ...skills];
 
 const sectionVariants = {
-	initial: { opacity: 0, y: 60 },
+	initial: { opacity: 0, y: 30 },
 	animate: { opacity: 1, y: 0 },
-	exit: { opacity: 0, y: -60 },
+	exit: { opacity: 0, y: -30 },
 };
 
 const Skills = () => {
@@ -91,58 +90,51 @@ const Skills = () => {
 				className="relative py-20 overflow-hidden bg-transparent mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
 				variants={sectionVariants}
 				initial="initial"
-				animate="animate"
+				whileInView="animate"
 				exit="exit"
-				transition={{ duration: 0.8, ease: "easeInOut" }}
+				transition={{ duration: 0.8 }}
 			>
 				{/* Header */}
 				<motion.div
-					className="text-center mb-12"
-					initial={{ opacity: 0, y: -50 }}
+					className="text-center mb-16"
+					initial={{ opacity: 0, y: -20 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8, ease: "easeInOut" }}
-					viewport={{ once: true }}
+					transition={{ duration: 0.8 }}
 				>
-					<h2 className="text-3xl sm:text-4xl font-bold text-accent2 mb-3">
+					<h2 className="text-4xl sm:text-5xl font-bold text-gradient mb-4">
 						Skills & Tools
 					</h2>
-					<p className="rounded-full bg-background/10 text-sm sm:text-base text-foreground/90 self-center w-fit px-4 py-1 mx-auto">
-						Technologies I use to build modern and scalable
-						applications
+					<p className="text-foreground/60 max-w-2xl mx-auto">
+						Technologies I use to build modern, scalable, and high-performance
+						applications.
 					</p>
 				</motion.div>
 
 				{/* Scrolling Skills */}
 				<motion.div
-					className="relative overflow-hidden backdrop-blur-md py-6 sm:py-10 px-2 sm:px-4 rounded-2xl"
+					className="relative overflow-hidden glass py-12 rounded-3xl"
 					initial={{ opacity: 0, scale: 0.95 }}
 					whileInView={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 0.6 }}
-					viewport={{ once: true }}
 				>
 					{/* Gradient Fades */}
-					<div className="absolute left-0 top-0 h-full w-16 sm:w-32 bg-gradient-to-r from-background to-transparent z-10" />
-					<div className="absolute right-0 top-0 h-full w-16 sm:w-32 bg-gradient-to-l from-background to-transparent z-10" />
+					<div className="absolute left-0 top-0 h-full w-24 sm:w-40 bg-gradient-to-r from-background to-transparent z-10" />
+					<div className="absolute right-0 top-0 h-full w-24 sm:w-40 bg-gradient-to-l from-background to-transparent z-10" />
 
 					{/* Animated Icons */}
-					<div className="flex gap-10 sm:gap-16 animate-marquee whitespace-nowrap">
+					<div className="flex gap-12 sm:gap-20 animate-marquee whitespace-nowrap">
 						{repeatedSkills.map((skill, index) => (
-							<motion.div
+							<div
 								key={index}
-								className="flex flex-col items-center justify-center min-w-[100px] sm:min-w-[150px]"
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{
-									duration: 0.4,
-									delay: index * 0.05,
-								}}
-								viewport={{ once: true }}
+								className="flex flex-col items-center justify-center min-w-[100px] sm:min-w-[150px] group"
 							>
-								{skill.icon}
-								<p className="mt-2 sm:mt-3 text-gray-300 text-sm sm:text-base font-medium">
+								<div className="transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(0,255,0,0.3)]">
+									{skill.icon}
+								</div>
+								<p className="mt-4 text-foreground/70 text-sm sm:text-base font-medium transition-colors group-hover:text-accent">
 									{skill.name}
 								</p>
-							</motion.div>
+							</div>
 						))}
 					</div>
 				</motion.div>
@@ -159,7 +151,10 @@ const Skills = () => {
 					}
 					.animate-marquee {
 						display: inline-flex;
-						animation: marquee 30s linear infinite;
+						animation: marquee 40s linear infinite;
+					}
+					.animate-marquee:hover {
+						animation-play-state: paused;
 					}
 				`}</style>
 			</motion.section>
