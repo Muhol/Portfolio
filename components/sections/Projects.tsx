@@ -38,6 +38,14 @@ const projects = [
 		demo: "https://platinums-hostels-git-main-muhols-projects.vercel.app/",
 		code: "https://github.com/Muhol/Platinums-Hostels",
 	},
+	{
+	  "title": "Olabs School Management System",
+	  "description": "A scalable multi-role school management system featuring library inventory tracking, borrowing analytics, admin dashboards, and real-time reporting with a modern data-driven UI.",
+	  "tech": ["React", "Next.js", "Python", "FastApi", "NeonDb", "PostgreSQL", "Tailwind CSS", "Docker"],
+	  "image": "/projects/4.png",
+	  "demo": "https://olabs-ten.vercel.app/",
+	  "code": "https://github.com/Muhol/Olabs"
+	}
 ];
 
 const Projects = () => {
